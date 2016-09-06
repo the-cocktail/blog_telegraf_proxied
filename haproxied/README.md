@@ -11,16 +11,17 @@ Arrancar telegraf en primer plano con
 telegraf -config start telegraf.conf
 ```
 
-arrancar haproxy con
-
-```
-./start_haproxy.sh
-```
 
 arrancar influxdb con
 
 ```
 ./start_influx.sh
+```
+
+arrancar haproxy con
+
+```
+./start_haproxy.sh
 ```
 
 Los datos de influx se borran cada vez que se para el contenedor.
