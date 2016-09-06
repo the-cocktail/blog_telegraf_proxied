@@ -10,10 +10,16 @@ arrancar influxdb con
 ./start_influx.sh
 ```
 
-Arrancar telegraf en primer plano con
+Arrancar telegraf "proxy"
 
 ```
-telegraf -config start telegraf.conf
+../telegraf_custom -config telegraf_tcp_input.cfg
+```
+
+Arrancar telegraf "proxied"
+
+```
+../telegraf_custom -config telegraf_tcp_output.cfg
 ```
 
 Los datos de influx se borran cada vez que se para el contenedor.
@@ -31,9 +37,10 @@ Probar a tirar distintas partes
 
 ## Comportamiento observado
 
-Si se apaga influx o el haproxy el telegraf debe empezar a a acumular
-metricas en su buffer, restablecidos los sistemas debe de volver a vaciar el
-buffer
+El telegraf no proxy no puede ser arrancado sin la presencia del proxy
 
-Si el telegraf se apaga con el buffer lleno, las metricas que no se han enviado
-a influx se pierden
+Si la conexion con el proxy se pierde el telegraf que no actua de proxy no puede
+recuperarla
+
+Si influx se apaga el proxy comienza a acumular en el buffer peticiones de ambos
+telegrafs, recuperandose cuando se restaura.
