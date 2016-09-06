@@ -1,0 +1,25 @@
+arranque del contenedor con influx
+
+  - docker run --rm -ti -p 8086:8086 -p 8083:8083 --name influx influxdb
+
+arranque del contenedor de haproxy
+
+  - 
+
+obtener telegraf
+
+ - wget https://dl.influxdata.com/telegraf/releases/telegraf-0.13.2_linux_amd64.tar.gz
+
+
+Errores de Telegraf
+
+2016/08/28 18:43:30 Output [influxdb] buffer fullness: 2 / 100000 metrics. Total gathered metrics: 11. Total dropped metrics: 0.
+2016/08/28 18:43:30 ERROR: Post http://localhost:8000/write?consistency=any&db=telegraf&precision=s&rp=default: dial tcp 127.0.0.1:8000: getsockopt: connection refused
+2016/08/28 18:43:30 Error writing to output [influxdb]: Could not write to any InfluxDB server in cluster
+2016/08/28 18:43:40 Output [influxdb] buffer fullness: 4 / 100000 metrics. Total gathered metrics: 13. Total dropped metrics: 0.
+2016/08/28 18:43:40 ERROR: Post http://localhost:8000/write?consistency=any&db=telegraf&precision=s&rp=default: dial tcp 127.0.0.1:8000: getsockopt: connection refused
+2016/08/28 18:43:40 Error writing to output [influxdb]: Could not write to any InfluxDB server in cluster
+2016/08/28 18:43:50 Output [influxdb] buffer fullness: 6 / 100000 metrics. Total gathered metrics: 15. Total dropped metrics: 0.
+2016/08/28 18:43:50 Output [influxdb] wrote batch of 4 metrics in 14.552602ms
+2016/08/28 18:43:50 Output [influxdb] wrote batch of 2 metrics in 8.656599ms
+2016/08/28 18:44:00 Output [influxdb] buffer fullness: 2 / 100000 metrics. Total gathered metrics: 17. Total dropped metrics: 0.
