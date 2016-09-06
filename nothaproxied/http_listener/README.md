@@ -35,7 +35,7 @@ consulta
 
 Probar a tirar distintas partes
 
-## Comportamiento esperado
+## Comportamiento observado
 
 Si se apaga el proxy el otro telegraf deberia empezar a acumular metricas en el
 buffer, recuperandose al arrancar el proxy
